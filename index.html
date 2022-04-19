@@ -1,48 +1,78 @@
 <head>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            margin-right: 4rem;
-            padding: 1rem 1rem 1rem 1rem;
-            font-size: 24px;
-        }
-        @media screen and (max-width: 700px) {
-          body {
-            font-size: 112px;
-          }
-        }
-        #delight {
-            color:blue;
-        }
-    </style>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      margin-right: 4rem;
+      padding: 1rem 1rem 1rem 1rem;
+      font-size: 24px;
+    }
+    @media screen and (max-width: 700px) {
+      body {
+        font-size: 112px;
+      }
+    }
+    #delight {
+      color: blue;
+    }
+  </style>
 </head>
 
 <body>
-    <p>Surprise and <a id="delight">delight</a></p>
-    <script>
-        const run = () => {
-            // stole from MDN
-            function getRandomIntInclusive(min, max) {
-                min = Math.ceil(min);
-                max = Math.floor(max);
-                return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-            }
+  <p>Surprise and <a id="delight">delight</a></p>
+  <script>
+    const run = () => {
+      // stole from MDN
+      function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+      }
 
-            let listsIndex = 0;
-            const bleghs = ["depose", "disappoint", "deter", "desist", "dick around", "depress", "distract", "no dice", "destroy"]
-            const celebrities = ["Claire Daines", "Danny DeVito", "Doug Dimmadome, owner of the Dimmsdale Dimmadome", "David Duchovney", "Ellen DeGeneres", "Darkwing Duck"]
-            const odds = ["dinosaur bones", "dine", "reprise", "decompose", "doge", "Diners, Drive-ins, and Dives", "dumplings"]
-            const lists = [bleghs, celebrities, odds]
-            const clickHandler = function (element, event) {
-                const newWordIndex = getRandomIntInclusive(0, lists[listsIndex].length - 1);
-                document.getElementById("delight").textContent = lists[listsIndex][newWordIndex];
-                listsIndex++;
-                if (listsIndex > lists.length - 1) listsIndex = 0
-            };
-            document.getElementById("delight").addEventListener('click', clickHandler);
-
-        }
-        run();
-    </script>
+      let listsIndex = 0;
+      const bleghs = [
+        "depose",
+        "disappoint",
+        "deter",
+        "desist",
+        "dick around",
+        "depress",
+        "distract",
+        "no dice",
+        "destroy",
+      ];
+      const celebrities = [
+        "Claire Daines",
+        "Danny DeVito",
+        "Doug Dimmadome, owner of the Dimmsdale Dimmadome",
+        "David Duchovney",
+        "Ellen DeGeneres",
+        "Darkwing Duck",
+      ];
+      const odds = [
+        "dinosaur bones",
+        "dine",
+        "reprise",
+        "decompose",
+        "doge",
+        "Diners, Drive-ins, and Dives",
+        "dumplings",
+      ];
+      const lists = [bleghs, celebrities, odds];
+      const clickHandler = function (element, event) {
+        const newWordIndex = getRandomIntInclusive(
+          0,
+          lists[listsIndex].length - 1
+        );
+        document.getElementById("delight").textContent =
+          lists[listsIndex][newWordIndex];
+        listsIndex++;
+        if (listsIndex > lists.length - 1) listsIndex = 0;
+      };
+      document
+        .getElementById("delight")
+        .addEventListener("click", clickHandler);
+    };
+    run();
+  </script>
 </body>
